@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150607182305) do
+ActiveRecord::Schema.define(version: 20150607202629) do
 
   create_table "profiles", force: :cascade do |t|
     t.text     "description"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150607182305) do
     t.boolean  "jungle"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "image"
   end
 
 end
