@@ -1,0 +1,49 @@
+<%= form_for(@profile) do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :steam %><br>
+    <%= f.text_field :steam %>
+  </div>
+  <div class="field">
+    <%= f.label :mmr %><br>
+    <%= f.number_field :mmr %>
+  </div>
+  <div class="field">
+    <%= f.label :carry %><br>
+    <%= f.check_box :carry %>
+  </div>
+  <div class="field">
+    <%= f.label :mid %><br>
+    <%= f.check_box :mid %>
+  </div>
+  <div class="field">
+    <%= f.label :support %><br>
+    <%= f.check_box :support %>
+  </div>
+  <div class="field">
+    <%= f.label :offlane %><br>
+    <%= f.check_box :offlane %>
+  </div>
+  <div class="field">
+    <%= f.label :jungle %><br>
+    <%= f.check_box :jungle %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

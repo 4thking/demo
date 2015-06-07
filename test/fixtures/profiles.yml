@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  steam: MyString
+  mmr: 1
+  carry: false
+  mid: false
+  support: false
+  offlane: false
+  jungle: false
+
+two:
+  description: MyText
+  steam: MyString
+  mmr: 1
+  carry: false
+  mid: false
+  support: false
+  offlane: false
+  jungle: false

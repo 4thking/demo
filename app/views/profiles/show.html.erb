@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @profile.description %>
+</p>
+
+<p>
+  <strong>Steam:</strong>
+  <%= @profile.steam %>
+</p>
+
+<p>
+  <strong>Mmr:</strong>
+  <%= @profile.mmr %>
+</p>
+
+<p>
+  <strong>Carry:</strong>
+  <%= @profile.carry %>
+</p>
+
+<p>
+  <strong>Mid:</strong>
+  <%= @profile.mid %>
+</p>
+
+<p>
+  <strong>Support:</strong>
+  <%= @profile.support %>
+</p>
+
+<p>
+  <strong>Offlane:</strong>
+  <%= @profile.offlane %>
+</p>
+
+<p>
+  <strong>Jungle:</strong>
+  <%= @profile.jungle %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>
