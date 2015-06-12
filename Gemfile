@@ -13,6 +13,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'carrierwave'
 gem "fog"
 gem "figaro"
+gem 'bootstrap-sass'
+gem 'devise'
 
 
 group :development, :test do

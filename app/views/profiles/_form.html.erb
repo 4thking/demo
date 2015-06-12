@@ -11,43 +11,43 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :steam %><br>
-    <%= f.text_field :steam %>
+    <%= f.text_field :steam, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :mmr %><br>
-    <%= f.number_field :mmr %>
+    <%= f.number_field :mmr, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :carry %><br>
     <%= f.check_box :carry %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :mid %><br>
     <%= f.check_box :mid %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :support %><br>
     <%= f.check_box :support %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :offlane %><br>
     <%= f.check_box :offlane %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :jungle %><br>
     <%= f.check_box :jungle %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :image %><br>
     <%= f.file_field :image %> 
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
