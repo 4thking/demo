@@ -5,8 +5,9 @@
         <div class="thumbnail">
           <%= image_tag profile.image.url %>
         <div class="caption">
-          <h3> <%= profile.steam %> </h3>
-          <p> <%= profile.mmr %> </p>
+          <h4> <%= profile.user.username %> </h4>
+          <p> <%= "Steam ID: #{profile.steam}" %> </p>
+          <p> <%= "MMR: #{profile.mmr}" %> </p>
           <%= link_to 'Show', profile, class: "btn btn-link" %>
           <%= link_to 'Edit', edit_profile_path(profile), class: "btn btn-link" %>
           <%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
