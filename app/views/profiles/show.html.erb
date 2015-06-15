@@ -1,62 +1,144 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container">
 <div class="row">
-
   <div class="col-md-6">
-    <div class="thumbnail">
+    <div class="thumbnail" style="background-color: #313131; border-color: #313131">
       <%= image_tag @profile.image_url %>
     </div>
   </div>  
 
   <div class="col-md-6">
-    <h3> <%= @profile.steam %> </h3>
-    <p> <%= @profile.mmr %> </p>
-    <p> <%= @profile.description %> </p>
-  </div>  
+    <h4 style="color: #ffffff"> <%= @profile.user.username %> </h3>
+    <% if @profile.steam.present? %>  
+      <p> <%= "Steam ID: #{@profile.steam}" %> </p>
+    <% end %>
+    <p> <%= "MMR: #{@profile.mmr}" %> </p>
+    <% if @profile.dotabuff.present? %>
+      <p> Dotabuff: <%= link_to @profile.dotabuff, @profile.dotabuff %> </p>
+    <% end %>
+    <p style="font-size: small"> <%= @profile.description %> </p>
 
+
+<div class="table-responsive col-md-6">
+  <table class="table" style="width:70%">
+    <thead>
+      <tr>
+        <th>Role</th>
+        <th></th>
+      </tr>
+    </thead>  
+    <tbody>
+        <tr>
+          <td>Carry</td>
+          <% if @profile.carry == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+
+        <tr>
+          <td>Mid</td>
+          <% if @profile.mid == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+
+        <tr>
+          <td>Support</td>
+          <% if @profile.support == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+
+        <tr>
+          <td>Offlane</td>
+          <% if @profile.offlane == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+
+        <tr>
+          <td>Jungle</td>
+          <% if @profile.jungle == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+    </tbody>        
+</table>  
+</div>  
+
+<div class="table-responsive col-md-6">
+  <table class="table" style="width:70%">
+    <thead>
+      <tr>
+        <th>Positions</th>
+        <th></th>
+      </tr>
+    </thead>  
+    <tbody>
+        <tr>
+          <td>Position 1</td>
+          <% if @profile.positionone == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+
+        <tr>
+          <td>Position 2</td>
+          <% if @profile.positiontwo == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+
+        <tr>
+          <td>Position 3</td>
+          <% if @profile.positionthree == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+
+        <tr>
+          <td>Position 4</td>
+          <% if @profile.positionfour == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+
+        <tr>
+          <td>Position 5</td>
+          <% if @profile.positionfive == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+    </tbody>        
+</table>  
+</div>  
+  </div>  
+</div>
 </div>
 
 
-
-<p>
-  <strong>Description:</strong>
-  <%= @profile.description %>
-</p>
-
-<p>
-  <strong>Steam:</strong>
-  <%= @profile.steam %>
-</p>
-
-<p>
-  <strong>Mmr:</strong>
-  <%= @profile.mmr %>
-</p>
-
-<p>
-  <strong>Carry:</strong>
-  <%= @profile.carry %>
-</p>
-
-<p>
-  <strong>Mid:</strong>
-  <%= @profile.mid %>
-</p>
-
-<p>
-  <strong>Support:</strong>
-  <%= @profile.support %>
-</p>
-
-<p>
-  <strong>Offlane:</strong>
-  <%= @profile.offlane %>
-</p>
-
-<p>
-  <strong>Jungle:</strong>
-  <%= @profile.jungle %>
-</p>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<% if current_user == @profile.user %>
+  <%= link_to 'Edit', edit_profile_path(@profile) %> |
+<% end %>
 <%= link_to 'Back', profiles_path %>

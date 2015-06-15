@@ -18,36 +18,76 @@
   </div>
   <div class="form-group">
     <%= f.label :steam %><br>
-    <%= f.text_field :steam, class: "form-control" %>
+    <%= f.text_field :steam, class: "form-control", placeholder: "Optional" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :dotabuff %><br>
+    <%= f.text_field :dotabuff, class: "form-control", placeholder: "Optional" %>
   </div>
   <div class="form-group">
     <%= f.label :mmr, "MMR" %><br>
     <%= f.number_field :mmr, class: "form-control" %>
   </div>
-  <div class="form-group">
-    <%= f.label :carry %><br>
-    <%= f.check_box :carry %>
+  <br>
+
+<h4 style="color:white"> Roles you can play </h4>
+    <div class="row">
+      <div class="radio-inline">
+        <%= f.label :carry %><br>
+        <%= f.check_box :carry %>
+      </div>
+      <div class="radio-inline">
+        <%= f.label :mid %><br>
+        <%= f.check_box :mid %>
+      </div>
+      <div class="radio-inline">
+        <%= f.label :support %><br>
+        <%= f.check_box :support %>
+      </div>
+      <div class="radio-inline">
+        <%= f.label :offlane %><br>
+        <%= f.check_box :offlane %>
+      </div>
+      <div class="radio-inline">
+        <%= f.label :jungle %><br>
+        <%= f.check_box :jungle %>
+      </div>
   </div>
-  <div class="form-group">
-    <%= f.label :mid %><br>
-    <%= f.check_box :mid %>
-  </div>
-  <div class="form-group">
-    <%= f.label :support %><br>
-    <%= f.check_box :support %>
-  </div>
-  <div class="form-group">
-    <%= f.label :offlane %><br>
-    <%= f.check_box :offlane %>
-  </div>
-  <div class="form-group">
-    <%= f.label :jungle %><br>
-    <%= f.check_box :jungle %>
-  </div>
+
+    <br>
+<h4 style="color:white"> Positions you can play </h4>
+    <div class="row">
+      <div class="radio-inline">
+        <%= f.label :positionone, "Position 1" %><br>
+        <%= f.check_box :positionone %>
+      </div>
+      <div class="radio-inline">
+        <%= f.label :positiontwo, "Position 2" %><br>
+        <%= f.check_box :positiontwo %>
+      </div>
+      <div class="radio-inline">
+        <%= f.label :positionthree, "Position 3" %><br>
+        <%= f.check_box :positionthree %>
+      </div>
+      <div class="radio-inline">
+        <%= f.label :positionfour, "Position 4" %><br>
+        <%= f.check_box :positionfour %>
+      </div>
+      <div class="radio-inline">
+        <%= f.label :positionfive, "Position 5" %><br>
+        <%= f.check_box :positionfive %>
+      </div>
+    </div>
+
+<br>
+
   <div class="form-group">
     <%= f.label :image %><br>
     <%= f.file_field :image %> 
   </div>
+
+<br>
+
   <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
   </div>

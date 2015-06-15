@@ -1,14 +1,31 @@
 <div class="center">
   <div class="row">
+
+  <div class="filter">
+    <%= form_tag profiles_path, method: :get do %>
+      <%= label_tag :steam, "Steam ID: " %>
+      <%= text_field_tag :steam %>
+      <%= submit_tag "Search", name: nil %>
+    <% end %>
+  </div>
+
+<br>
+<br>
+<br>
+
+
     <% @profiles.each do |profile| %>
       <div class="col-md-3">
         <div class="thumbnail">
-          <%= image_tag profile.image.url %>
+          <%= link_to image_tag(profile.image.url), profile %>
         <div class="caption">
-
-          <%= link_to 'Show', profile, class: "btn btn-link" %>
-          <%= link_to 'Edit', edit_profile_path(profile), class: "btn btn-link" %>
-          <%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+          <h3> <%= profile.user.username %> </h3>
+          <p> <%= "Steam ID: #{profile.steam}" %> </p>
+          <p> <%= "MMR: #{profile.mmr}" %> </p>
+          <% if (user_signed_in?) && (current_user == profile.user) %>
+            <%= link_to 'Edit', edit_profile_path(profile), class: "btn btn-link" %>
+            <%= link_to 'Delete', profile, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -16,4 +33,8 @@
    </div> 
 </div>
 
-<%= link_to 'New Profile', new_profile_path %>
+<br>
+
+<% if user_signed_in? %>
+  <%= link_to 'New Profile', new_profile_path %>
+<% end %>

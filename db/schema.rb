@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612225412) do
+ActiveRecord::Schema.define(version: 20150614183458) do
 
   create_table "profiles", force: :cascade do |t|
     t.text     "description"
@@ -22,10 +22,16 @@ ActiveRecord::Schema.define(version: 20150612225412) do
     t.boolean  "support"
     t.boolean  "offlane"
     t.boolean  "jungle"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "image"
     t.integer  "user_id"
+    t.string   "dotabuff"
+    t.boolean  "positionone"
+    t.boolean  "positiontwo"
+    t.boolean  "positionthree"
+    t.boolean  "positionfour"
+    t.boolean  "positionfive"
   end
 
   create_table "users", force: :cascade do |t|

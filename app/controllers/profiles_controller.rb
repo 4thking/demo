@@ -1,10 +1,13 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :check_user, only: [:edit, :update, :destroy]
 
   # GET /profiles
   # GET /profiles.json
   def index
     @profiles = Profile.all
+    @profiles = @profiles.where(steam: params["steam"]) if params["steam"].present?
   end
 
   # GET /profiles/1
@@ -70,6 +73,12 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:description, :steam, :mmr, :carry, :mid, :support, :offlane, :jungle, :image)
+      params.require(:profile).permit(:description, :steam, :mmr, :carry, :mid, :support, :offlane, :jungle, :image, :dotabuff)
     end
+
+    def check_user
+      if current_user != @profile.user
+        redirect_to root_url, alert: "Sorry this profile belongs to someone else"
+      end
+    end    
 end
