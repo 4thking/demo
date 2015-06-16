@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150614183458) do
+ActiveRecord::Schema.define(version: 20150615183613) do
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "language"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.text     "description"
@@ -32,7 +38,12 @@ ActiveRecord::Schema.define(version: 20150614183458) do
     t.boolean  "positionthree"
     t.boolean  "positionfour"
     t.boolean  "positionfive"
+    t.boolean  "compete"
+    t.boolean  "casual"
+    t.integer  "language_id"
   end
+
+  add_index "profiles", ["language_id"], name: "index_profiles_on_language_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

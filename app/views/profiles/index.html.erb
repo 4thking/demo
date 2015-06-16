@@ -20,7 +20,9 @@
           <%= link_to image_tag(profile.image.url), profile %>
         <div class="caption">
           <h3> <%= profile.user.username %> </h3>
-          <p> <%= "Steam ID: #{profile.steam}" %> </p>
+          <% if profile.steam.present? %>  
+            <p> <%= "Steam ID: #{profile.steam}" %> </p>
+          <% end %>
           <p> <%= "MMR: #{profile.mmr}" %> </p>
           <% if (user_signed_in?) && (current_user == profile.user) %>
             <%= link_to 'Edit', edit_profile_path(profile), class: "btn btn-link" %>
