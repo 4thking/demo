@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615183613) do
+ActiveRecord::Schema.define(version: 20150616192449) do
 
   create_table "languages", force: :cascade do |t|
     t.string   "language"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150615183613) do
     t.boolean  "compete"
     t.boolean  "casual"
     t.integer  "language_id"
+    t.string   "time_zone"
   end
 
   add_index "profiles", ["language_id"], name: "index_profiles_on_language_id"

@@ -15,6 +15,7 @@ gem "fog"
 gem "figaro"
 gem 'bootstrap-sass'
 gem 'devise'
+gem "timezone"
 
 
 group :development, :test do

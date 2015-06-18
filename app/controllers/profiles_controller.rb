@@ -3,11 +3,30 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_filter :check_user, only: [:edit, :update, :destroy]
 
+
   # GET /profiles
   # GET /profiles.json
   def index
     @profiles = Profile.all
     @profiles = @profiles.where(steam: params["steam"]) if params["steam"].present?
+    @profiles = @profiles.where("mmr > ?", params["min_mmr"]) if params["min_mmr"].present?
+    @profiles = @profiles.where("mmr > ?", params["max_mmr"]) if params["max_mmr"].present?
+    @profiles = @profiles.where(time_zone: params["time_zone"]) if params["time_zone"].present?
+    @profiles = @profiles.where(language_id: params["language_id"]) if params["language_id"].present?
+    @profiles = @profiles.where(carry: params["carry"]) if params["carry"].present?
+    @profiles = @profiles.where(mid: params["mid"]) if params["mid"].present?
+    @profiles = @profiles.where(support: params["support"]) if params["support"].present?
+    @profiles = @profiles.where(offlane: params["offlane"]) if params["offlane"].present?
+    @profiles = @profiles.where(jungle: params["jungle"]) if params["jungle"].present?
+    @profiles = @profiles.where(positionone: params["positionone"]) if params["positionone"].present?
+    @profiles = @profiles.where(positiontwo: params["positiontwo"]) if params["positiontwo"].present?
+    @profiles = @profiles.where(positionthree: params["positionthree"]) if params["positionthree"].present?
+    @profiles = @profiles.where(positionfour: params["positionfour"]) if params["positionfour"].present?
+    @profiles = @profiles.where(positionfive: params["positionfive"]) if params["positionfive"].present?
+
+
+
+
   end
 
   # GET /profiles/1
@@ -29,6 +48,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
+
 
     respond_to do |format|
       if @profile.save
@@ -73,7 +93,7 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:description, :steam, :mmr, :carry, :mid, :support, :offlane, :jungle, :image, :dotabuff, :compete, :casual, :language_id)
+      params.require(:profile).permit(:description, :steam, :mmr, :carry, :mid, :support, :offlane, :jungle, :image, :dotabuff, :compete, :casual, :language_id, :time_zone)
     end
 
     def check_user

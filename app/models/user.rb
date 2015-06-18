@@ -6,5 +6,7 @@ class User < ActiveRecord::Base
 
   validates :username, :length => { :maximum => 10 }, presence: true
 
+
+
   has_one :profile, dependent: :destroy
 end
