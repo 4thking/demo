@@ -16,6 +16,10 @@ gem "figaro"
 gem 'bootstrap-sass'
 gem 'devise'
 gem "timezone"
+gem "mailboxer"
+gem 'will_paginate'
+gem 'chosen-rails', git: 'git://github.com/qpowell/chosen-rails.git'
+gem 'jquery-turbolinks'
 
 
 group :development, :test do

@@ -6,7 +6,11 @@ class User < ActiveRecord::Base
 
   validates :username, :length => { :maximum => 10 }, presence: true
 
+  acts_as_messageable
 
+ def mailboxer_email(object)
+  email
+end
 
   has_one :profile, dependent: :destroy
 end
