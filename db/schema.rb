@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618203312) do
+ActiveRecord::Schema.define(version: 20150622192712) do
+
+  create_table "heros", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "languages", force: :cascade do |t|
     t.string   "language"
@@ -95,8 +101,10 @@ ActiveRecord::Schema.define(version: 20150618203312) do
     t.boolean  "casual"
     t.integer  "language_id"
     t.string   "time_zone"
+    t.integer  "hero_id"
   end
 
+  add_index "profiles", ["hero_id"], name: "index_profiles_on_hero_id"
   add_index "profiles", ["language_id"], name: "index_profiles_on_language_id"
 
   create_table "users", force: :cascade do |t|

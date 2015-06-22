@@ -6,6 +6,7 @@ class Profile < ActiveRecord::Base
 
 	
 	belongs_to :language, :class_name => Language, :foreign_key => :language_id
+	belongs_to :hero, :class_name => Hero, :foreign_key => :hero_id
 	belongs_to :user
 	validates_uniqueness_of :user_id, :message => "already has a profile"
 	validates :dotabuff, format: { with: /\Ahttps?:\/\/.*\z/,

@@ -93,7 +93,7 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:description, :steam, :mmr, :carry, :mid, :support, :offlane, :jungle, :image, :dotabuff, :compete, :casual, :language_id, :time_zone)
+      params.require(:profile).permit(:description, :steam, :mmr, :carry, :mid, :support, :offlane, :jungle, :image, :dotabuff, :compete, :casual, :language_id, :time_zone, :hero_id)
     end
 
     def check_user
