@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container">
 <div class="row">
   <div class="col-md-6">
@@ -10,9 +8,11 @@
 
   <div class="col-md-6">
     <h4 style="color: #ffffff"> <%= @profile.user.username %> </h3>
+
     <% if @profile.steam.present? %>  
       <p> <%= "Steam ID: #{@profile.steam}" %> </p>
     <% end %>
+
     <p> <%= "MMR: #{@profile.mmr}" %> </p>
     <% if @profile.dotabuff.present? %>
       <p> Dotabuff: <%= link_to @profile.dotabuff, @profile.dotabuff %> </p>
@@ -20,7 +20,10 @@
     <p style="font-size: small"> <%= @profile.description %> </p>
     <p> <%= @profile.language.language %> </p>
     <p> <%= @profile.time_zone %> </p>
-    <p> <%= @profile.hero.name %> </p>
+
+    <% if @profile.hero.present? %>
+      <p><%= @profile.hero.name %> </p>
+    <% end %>
 
 
 
@@ -169,8 +172,8 @@
 </table>  
 </div>  
   </div>  
-
-
+</div>
+</div>
 
 
 

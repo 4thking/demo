@@ -18,8 +18,11 @@ gem 'devise'
 gem "timezone"
 gem "mailboxer"
 gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 gem 'chosen-rails', git: 'git://github.com/qpowell/chosen-rails.git'
 gem 'jquery-turbolinks'
+gem 'mini_magick'
+
 
 
 group :development, :test do

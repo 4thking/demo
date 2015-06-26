@@ -1,0 +1,57 @@
+<div class="panel-group" id="accordion">
+   <div class="panel panel-primary">
+   
+        <div class="panel-heading">
+            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#accordionOne">
+              Search Profiles
+              <%= form_tag profiles_path, method: :get do %>
+            </a>
+           </h4>
+        </div>
+    
+        <div id="accordionOne" class="panel-collapse collapse">
+          <div class="panel-body">
+            <table class="table" style="color:black">
+                <tbody style="height:50%" >
+                    <tr>
+                        <td><%= text_field_tag :steam, params[:steam], placeholder: 'Steam ID' %></td>
+                        <td><%= text_field_tag :min_mmr, params[:min_mmr], placeholder: 'Minimum MMR' %></td>
+                        <td ><%= text_field_tag :max_mmr, params[:max_mmr], placeholder: 'Maximum MMR' %> </td> 
+                        <td style="width: 200px"><%= select_tag(:time_zone, time_zone_options_for_select, { :include_blank =>"Time Zone", class: "form-control input-sm" }) %></td>
+                        <td style="width: 200px"> <%= select_tag(:language_id, options_from_collection_for_select(Language.all, :id, :language, params[:language_id]), { :include_blank =>"Primary Language", class: "form-control input-sm" }) %></td>   
+                        <td><%= select_tag(:hero_id, options_from_collection_for_select(Hero.all, :id, :name, params[:hero_id]), { :include_blank =>"Best Hero", class: "form-control input-sm" }) %></td>
+                    </tr>
+                    <tr>
+                      <td> <b>Roles:</b> </td>
+                      <td>Carry: <%= check_box_tag :carry, "t", params[:carry] %></td>
+                      <td> Mid: <%= check_box_tag :mid, "t", params[:mid] %> </td>
+                      <td> Support: <%= check_box_tag :support, "t", params[:support] %> </td>
+                      <td> Jungle: <%= check_box_tag :jungle, "t", params[:jungle] %> </td>
+                      <td> Offlane: <%= check_box_tag :offlane %> </td>
+                    </tr>
+                    <tr>
+                      <td> <b>Position</b> </td>
+                      <td>1: <%= check_box_tag :positionone, "t", params[:positionone] %> </td>
+                      <td>2: <%= check_box_tag :positiontwo, "t", params[:positiontwo] %> </td> 
+                      <td>3: <%= check_box_tag :positionthree, "t", params[:positionthree] %> </td>
+                      <td> 4: <%= check_box_tag :positionfour, "t", params[:positionfour] %> </td>
+                      <td> 5: <%= check_box_tag :positionfive, "t", params[:positionfive] %> </td>
+                    </tr>  
+                    <tr>
+                      <td> <b>Level of Play</b> </td>
+                      <td> Competitive: <%= check_box_tag :compete, "t", params[:compete] %> </td>
+                      <td> Casual: <%= check_box_tag :casual, "t", params[:casual] %> </td>
+                    </tr>  
+                    <tr>
+                        <td><div class="center">
+                            <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
+                            <% end %>
+                        </div>
+                    </td>
+                </tbody>  
+            </table>      
+          </div>
+        </div>
+  </div>
+  <br>

@@ -7,12 +7,14 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all
+    @profiles = Profile.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
+
     @profiles = @profiles.where(steam: params["steam"]) if params["steam"].present?
     @profiles = @profiles.where("mmr > ?", params["min_mmr"]) if params["min_mmr"].present?
     @profiles = @profiles.where("mmr > ?", params["max_mmr"]) if params["max_mmr"].present?
     @profiles = @profiles.where(time_zone: params["time_zone"]) if params["time_zone"].present?
     @profiles = @profiles.where(language_id: params["language_id"]) if params["language_id"].present?
+    @profiles = @profiles.where(hero_id: params["hero_id"]) if params["hero_id"].present?
     @profiles = @profiles.where(carry: params["carry"]) if params["carry"].present?
     @profiles = @profiles.where(mid: params["mid"]) if params["mid"].present?
     @profiles = @profiles.where(support: params["support"]) if params["support"].present?
@@ -23,8 +25,8 @@ class ProfilesController < ApplicationController
     @profiles = @profiles.where(positionthree: params["positionthree"]) if params["positionthree"].present?
     @profiles = @profiles.where(positionfour: params["positionfour"]) if params["positionfour"].present?
     @profiles = @profiles.where(positionfive: params["positionfive"]) if params["positionfive"].present?
-
-
+    @profiles = @profiles.where(compete: params["compete"]) if params["compete"].present?
+    @profiles = @profiles.where(casual: params["casual"]) if params["casual"].present?
 
 
   end

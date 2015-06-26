@@ -1,96 +1,27 @@
-<div class="center">
-  <div class="row">
+<%= render 'filter' %>
 
-  <div class="filter">
-    <%= form_tag profiles_path, method: :get do %>
-
-      <%= label_tag :steam, "Steam ID: " %>
-      <%= text_field_tag :steam %>
-
-      <%= label_tag :min_mmr, "Min MMR: " %>
-      <%= text_field_tag :min_mmr, params[:min_mmr] %>
-
-      <%= label_tag :max_mmr, "Max MMR: "%>
-      <%= text_field_tag :max_mmr, params[:max_mmr] %>
-
-
-      <%= label_tag :time_zone, "Time Zone: " %>
-      <%= select_tag(:time_zone, time_zone_options_for_select, { include_blank: true }) %> <br><br>
-
-      <%= label_tag :language_id, "Language: " %>
-      <%= select_tag(:language_id, options_from_collection_for_select(Language.all, :id, :language, params[:language_id]), { include_blank: true }) %>
-
-      <%= label_tag :carry %>
-      <%= check_box_tag :carry, "t", params[:carry] %>
-
-      <%= label_tag :mid %>
-      <%= check_box_tag :mid, "t", params[:mid] %>
-
-      <%= label_tag :support %>
-      <%= check_box_tag :support, "t", params[:support] %>
-
-      <%= label_tag :offlane %>
-      <%= check_box_tag :offlane, "t", params[:offlane] %>
-
-      <%= label_tag :jungle %>
-      <%= check_box_tag :jungle, "t", params[:jungle] %> 
-
-      <%= label_tag :carry %>
-      <%= check_box_tag :carry, "t", params[:carry] %>
-
-      <%= label_tag :positionone %>
-      <%= check_box_tag :positionone, "t", params[:positionone] %>
-
-      <%= label_tag :positiontwo %>
-      <%= check_box_tag :positiontwo, "t", params[:positiontwo] %>
-
-      <%= label_tag :positionthree %>
-      <%= check_box_tag :positionthree, "t", params[:positionthree] %>
-
-      <%= label_tag :positionfour %>
-      <%= check_box_tag :positionfour, "t", params[:positionfour] %>
-
-      <%= label_tag :positionfive %>
-      <%= check_box_tag :positionfive, "t", params[:positionfive] %>
-
-
-      <br><br>
-
-
-
-      <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
-    <% end %>
-  </div>
-
-
-<br>
-<br>
-<br>
-
-
-    <% @profiles.each do |profile| %>
-      <div class="col-md-3">
-        <div class="thumbnail">
-          <%= link_to image_tag(profile.image.url), profile %>
-        <div class="caption">
-          <h3> <%= profile.user.username %> </h3>
-          <% if profile.steam.present? %>  
-            <p> <%= "Steam ID: #{profile.steam}" %> </p>
-          <% end %>
-          <p> <%= "MMR: #{profile.mmr}" %> </p>
-          <% if (user_signed_in?) && (current_user == profile.user) %>
-            <%= link_to 'Edit', edit_profile_path(profile), class: "btn btn-link" %>
-            <%= link_to 'Delete', profile, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
-          <% end %>
+  
+<div class="container">
+  <div class="center">
+    <div class="row">
+      <% @profiles.each do |profile| %>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <%= link_to image_tag(profile.image.thumb.url), profile %>
+            <div class="caption">
+              <h3> <%= profile.user.username %> </h3> 
+              <p> <%= "MMR: #{profile.mmr}" %> </p>
+            </div>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
-    <% end %>
-   </div> 
+  </div>
+    <%= will_paginate @profile, renderer: BootstrapPagination::Rails %>
 </div>
 
-<br>
 
-<% if user_signed_in? %>
-  <%= link_to 'New Profile', new_profile_path %>
-<% end %>
+
+
+
+
