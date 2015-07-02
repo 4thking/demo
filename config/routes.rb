@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'pages/terms_of_service'
+
+  get 'pages/terms_of_services'
+
+  get 'pages/privacy_policy'
+
   devise_for :users
   resources :profiles
 
@@ -7,32 +13,19 @@ Rails.application.routes.draw do
 
   root 'profiles#index'
 
-  resources :conversations, only: [:index, :show, :destroy]
-  resources :messages, only: [:new, :create]
-
-  resources :conversations, only: [:index, :show, :destroy] do
-  member do
-    post :reply
+ resources :conversations, only: [:index, :show, :destroy] do
+    member do
+      post :reply
+      post :restore
+      post :mark_as_read
+    end
+    collection do
+      delete :empty_trash
     end
   end
+  resources :messages, only: [:new, :create]
 
-resources :conversations, only: [:index, :show, :destroy] do
-  member do
-    post :restore
-  end
-end
-
-resources :conversations, only: [:index, :show, :destroy] do
-  collection do
-    delete :empty_trash
-  end
-end
-
-resources :conversations, only: [:index, :show, :destroy] do
-  member do
-    post :mark_as_read
-  end
-end
+  resources :users, only: [:index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

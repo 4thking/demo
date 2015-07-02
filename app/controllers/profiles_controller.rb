@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
+    @profiles = Profile.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 28)
 
     @profiles = @profiles.where(steam: params["steam"]) if params["steam"].present?
     @profiles = @profiles.where("mmr > ?", params["min_mmr"]) if params["min_mmr"].present?

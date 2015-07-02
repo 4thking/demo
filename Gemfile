@@ -22,6 +22,7 @@ gem 'will_paginate-bootstrap'
 gem 'chosen-rails', git: 'git://github.com/qpowell/chosen-rails.git'
 gem 'jquery-turbolinks'
 gem 'mini_magick'
+gem 'file_validators'
 
 
 

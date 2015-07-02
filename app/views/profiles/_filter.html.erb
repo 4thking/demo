@@ -4,7 +4,13 @@
         <div class="panel-heading">
             <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#accordionOne">
-              Search Profiles
+
+              Search Profiles 
+
+                              <div class="pull-right">
+                    <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+                </div>
+
               <%= form_tag profiles_path, method: :get do %>
             </a>
            </h4>
@@ -44,11 +50,11 @@
                       <td> Casual: <%= check_box_tag :casual, "t", params[:casual] %> </td>
                     </tr>  
                     <tr>
-                        <td><div class="center">
+                        <td>
                             <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
                             <% end %>
-                        </div>
-                    </td>
+                        </td>
+                    </tr>    
                 </tbody>  
             </table>      
           </div>

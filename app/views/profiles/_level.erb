@@ -1,0 +1,29 @@
+<div class="table-responsive col-md-6">
+  <table class="table" style="width:75%">
+    <thead>
+      <tr>
+        <th>Level of Play</th>
+        <th></th>
+      </tr>
+    </thead>  
+    <tbody>
+        <tr>
+          <td>Competitive</td>
+          <% if @profile.compete == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+
+        <tr>
+          <td>Casual</td>
+          <% if @profile.casual == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+    </tbody>        
+</table>  
+</div>  

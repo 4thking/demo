@@ -1,0 +1,56 @@
+<div class="table-responsive col-md-6">
+  <table class="table" style="width:70%">
+    <thead>
+      <tr>
+        <th>Role</th>
+        <th></th>
+      </tr>
+    </thead>  
+    <tbody>
+        <tr>
+          <td>Carry</td>
+          <% if @profile.carry == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+
+        <tr>
+          <td>Mid</td>
+          <% if @profile.mid == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+
+        <tr>
+          <td>Support</td>
+          <% if @profile.support == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+
+        <tr>
+          <td>Offlane</td>
+          <% if @profile.offlane == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+
+        <tr>
+          <td>Jungle</td>
+          <% if @profile.jungle == true %>
+            <td><img src="http://provennutritionforkids.com/wp-content/uploads/2012/10/Green-CheckMark.png" width="20%", height="auto"></td>  
+          <% else %>
+            <td><img src="http://www.tonersexpress.co.uk/media/gbu0/Labels/cross_icon.png" width="20%", height="auto"></td>
+          <% end %>  
+        </tr>
+    </tbody>        
+</table>  
+</div>  
