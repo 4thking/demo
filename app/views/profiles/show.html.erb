@@ -3,15 +3,17 @@
       <div class="thumbnail" style="background-color: #313131; border-color: #313131">
         <%= image_tag @profile.image_url %>
       </div>
-      <div class="col-md-3">
+
+          <div class="col-md-3">
               <%= link_to 'Send message', new_message_path(@profile.id) , class: 'btn btn-default btn-sm' %>
-      </div>        
+      </div>     
+
     </div>
 
 
     <div class="col-md-6">
       <div class="col-md-12">
-        <h3> <%= "#{@profile.user.username}'s" %> Profile </h3>
+        <h3 class="center"> <%= "#{@profile.user.username}'s" %> Profile </h3>
         <hr>
     </div>
       <hr>
@@ -47,6 +49,7 @@
       <% end %>
   </div>
 
+
   <div class="col-md-12">
     <hr>
       <p> About Me </p>
@@ -54,26 +57,15 @@
       <hr>
   </div>
 
+  <%= render 'roles' %>
 
+  <%= render 'positions' %>
 
-
-<%= render 'roles' %>
-
-<%= render 'positions' %>
-
-<%= render 'level' %>
-
-
-
-    </div>  
+    </div>
   </div>
 </div>
 
-
-
-
-
-
+<br>
 <% if current_user == @profile.user %>
   <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <% end %>

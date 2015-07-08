@@ -8,6 +8,8 @@
       <%= mailbox_section 'sent', @box %>
       <%= mailbox_section 'trash', @box %><br>
       <p><%= link_to 'Start conversation', new_message_path, class: 'btn btn-lg btn-primary' %></p>
+      <br>
+      <%= link_to "Back", :back %>
     </ul>
   </div>
 
