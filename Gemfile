@@ -23,6 +23,7 @@ gem 'chosen-rails', git: 'git://github.com/qpowell/chosen-rails.git'
 gem 'jquery-turbolinks'
 gem 'mini_magick'
 gem 'file_validators'
+gem "recaptcha", :require => "recaptcha/rails"
 
 
 

@@ -1,13 +1,10 @@
-
-
+<div class="container">
 <%= render 'filter' %>
-
-
   <div class="center">
     <div class="row">
       <% @profiles.each do |profile| %>
         <div class="col-md-3">
-          <div class="thumbnail">
+          <div class="thumbnail" style="width: 200px, height:200px">
             <%= link_to image_tag(profile.image.thumb.url), profile %>
             <div class="caption">
               <h3> <%= profile.user.username %> </h3> 
@@ -18,6 +15,13 @@
       <% end %>
     </div>
   </div>
+
+  <div class="center">
+    <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div>
+  </div>
+
+</div>
+
     <%= will_paginate @profile, renderer: BootstrapPagination::Rails %>
 
 

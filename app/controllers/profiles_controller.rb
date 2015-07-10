@@ -28,6 +28,8 @@ class ProfilesController < ApplicationController
     @profiles = @profiles.where(compete: params["compete"]) if params["compete"].present?
     @profiles = @profiles.where(casual: params["casual"]) if params["casual"].present?
 
+    @disable_footer = true
+
 
   end
 
@@ -39,6 +41,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/new
   def new
     @profile = Profile.new
+    @disable_footer = true
   end
 
   # GET /profiles/1/edit

@@ -14,8 +14,12 @@
 
 
   <div class="form-group">
-    <%= f.label :description %><br>
+    <%= f.label :description, "About You" %><br>
     <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :mmr, "MMR" %><br>
+    <%= f.number_field :mmr, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label :steam %><br>
@@ -25,25 +29,34 @@
     <%= f.label :dotabuff %><br>
     <%= f.text_field :dotabuff, class: "form-control", placeholder: "Optional" %>
   </div>
-  <div class="form-group">
-    <%= f.label :mmr, "MMR" %><br>
-    <%= f.number_field :mmr, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :language_id, "Primary Language" %><br>
-    <%= f.collection_select(:language_id, Language.all, :id, :language, :selected => "4") %>
-  </div>  
+  <hr>
+
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.label :language_id, "Primary Language" %><br>
+      <%= f.collection_select(:language_id, Language.all, :id, :language, :selected => "4") %>
+    </div>  
+
+      <div class="form-group">
+      <%= f.label :hero_id, "Favorite Hero" %><br>
+      <%= f.collection_select(:hero_id, Hero.all, :id, :name ) %>
+    </div>  
 
     <div class="form-group">
-    <%= f.label :hero_id, "Primary Language" %><br>
-    <%= f.collection_select(:hero_id, Hero.all, :id, :name ) %>
-  </div>  
+    <%= f.label "Timezone" %><br>
+    <%= f.time_zone_select :time_zone %>
+    </div>
 
-  <%= f.time_zone_select :time_zone %>
+    <div class="form-group">
+      <%= f.label :image %><br>
+      <%= f.file_field :image %> 
+    </div>
+  </div>
   
-<br>
 
-<h4 style="color:white"> Roles you can play </h4>
+
+ <div class="col-md-6">
+  <label> Roles you can play </label>
     <div class="row">
       <div class="radio-inline">
         <%= f.label :carry %><br>
@@ -70,7 +83,7 @@
 
     <br>
 
-<h4 style="color:white"> Positions you can play </h4>
+  <label> Positions you can play </label>
     <div class="row">
       <div class="radio-inline">
         <%= f.label :positionone, "Position 1" %><br>
@@ -93,8 +106,8 @@
         <%= f.check_box :positionfive %>
       </div>
     </div>
-
-<h4 style="color:white"> Compete Level </h4>
+<br>
+  <label>  Compete Level </label>
     <div class="row">
       <div class="radio-inline">
         <%= f.label :compete, "Competitive" %><br>
@@ -105,17 +118,17 @@
         <%= f.check_box :casual %>
       </div>
     </div>
+</div>
 
-<br>
+<div class="col-md-12">
+<br><br>
+  <div class="center">
+    <div class="actions">
+      <%= f.submit class: "btn btn-primary" %><br><br>
 
-  <div class="form-group">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %> 
+      <p style="size:small"> By clicking create profile you are agreeing to abide by our terms of services </p>
+    </div>
   </div>
+</div>
 
-<br>
-
-  <div class="actions">
-    <%= f.submit class: "btn btn-primary" %>
-  </div>
 <% end %>

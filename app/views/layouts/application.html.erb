@@ -4,10 +4,13 @@
   <title>Dota</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
   <%= csrf_meta_tags %>
 </head>
 
 <body>
+
+    <%= render 'layouts/facebook' %>
 
     <%= render 'layouts/header' %>
   
@@ -26,9 +29,10 @@
 
     <%= yield %>
  
-    <%= render 'layouts/footer' %>
+    <%= render 'layouts/footer' unless @disable_footer %>
 
   </div>  
+</div>
 </body>
 
 
