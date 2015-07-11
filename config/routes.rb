@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'pages/privacy_policy'
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "users/registrations" }
   resources :profiles
 
   get 'pages/about'

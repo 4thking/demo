@@ -1,4 +1,5 @@
-    class RegistrationsController < Devise::RegistrationsController
+    class Users::RegistrationsController < Devise::RegistrationsController
+
       def create
         if verify_recaptcha
           super
@@ -11,3 +12,4 @@
         end
       end
     end
+    
