@@ -22,7 +22,7 @@
       
       <% if @profile.steam.present? %> 
         <h4> Steam ID: </h4> 
-        <p style="font-size: medium"> <%= @profile.steam %> </p>
+        <p style="font-size: medium"> <a href="<%= @profile.steam %>" > Link </a> </p>
       <% end %>
 
       <h4> MMR: </h4>
@@ -35,7 +35,8 @@
      <div class="col-md-6">
 
       <% if @profile.dotabuff.present? %>
-        <p> Dotabuff: <%= link_to @profile.dotabuff, @profile.dotabuff %> </p>
+        <h4> Dotabuff: </h4> 
+        <p style="font-size: medium"><a href="<%= @profile.dotabuff %>" > Link </a> </p>
       <% end %>
 
       <h4> Primary Language: </h4>
